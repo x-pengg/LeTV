@@ -15,8 +15,8 @@ import java.util.Map;
  */
 public class ActivityTest {
 
-    private static String userId = "";
-    private static String secret = "";
+    private static String userId = "826763";
+    private static String secret = "df116ce79e6509b44f267d75361305d1";
     private static String ver = "3.0";
 
     @Test
@@ -25,9 +25,25 @@ public class ActivityTest {
         letvApiClient.setUserid(userId);
         letvApiClient.setSecret(secret);
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("activityId", "A2016032100001aj");
+        param.put("activityId", "A2016032600001ek");
         try {
             HttpResponse httpResponse = letvApiClient.executeGet("letv.cloudlive.activity.search", ver, param);
+            HttpEntity entity = httpResponse.getEntity();
+            System.out.println(EntityUtils.toString(entity, "GBK"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getPushUrl() {
+        LetvApiClient letvApiClient = new LetvApiClient();
+        letvApiClient.setUserid(userId);
+        letvApiClient.setSecret(secret);
+        HashMap<String, String> param = new HashMap<String, String>();
+        param.put("activityId", "A2016032600001ek");
+        try {
+            HttpResponse httpResponse = letvApiClient.executeGet("letv.cloudlive.activity.getPushUrl", ver, param);
             HttpEntity entity = httpResponse.getEntity();
             System.out.println(EntityUtils.toString(entity, "GBK"));
         } catch (IOException e) {
@@ -44,8 +60,8 @@ public class ActivityTest {
 
             Map<String, String> param = new HashMap<String, String>();
             param.put("activityName", "测试活动");
-            param.put("startTime", "20160321204655");
-            param.put("endTime", "20160321224655");
+            param.put("startTime", "20160326214655");
+            param.put("endTime", "20160326224655");
             param.put("liveNum", "1");
             param.put("codeRateTypes", "99");
             param.put("needRecord", "0");
@@ -68,9 +84,25 @@ public class ActivityTest {
         letvApiClient.setUserid(userId);
         letvApiClient.setSecret(secret);
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("activityId", "A2016032100001aj");
+        param.put("activityId", "A2016032600001ek");
         try {
             HttpResponse httpResponse = letvApiClient.executeGet("letv.cloudlive.activity.playerpage.getUrl", ver, param);
+            HttpEntity entity = httpResponse.getEntity();
+            System.out.println(EntityUtils.toString(entity, "GBK"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getPlayInfo() {
+        LetvApiClient letvApiClient = new LetvApiClient();
+        letvApiClient.setUserid(userId);
+        letvApiClient.setSecret(secret);
+        HashMap<String, String> param = new HashMap<String, String>();
+        param.put("activityId", "A2016032600001ek");
+        try {
+            HttpResponse httpResponse = letvApiClient.executeGet("letv.cloudlive.activity.getPlayInfo", ver, param);
             HttpEntity entity = httpResponse.getEntity();
             System.out.println(EntityUtils.toString(entity, "GBK"));
         } catch (IOException e) {
