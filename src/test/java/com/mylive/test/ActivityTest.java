@@ -25,7 +25,7 @@ public class ActivityTest {
         letvApiClient.setUserid(userId);
         letvApiClient.setSecret(secret);
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("activityId", "A2016032600001ek");
+        param.put("activityId", "A201604210000219");
         try {
             HttpResponse httpResponse = letvApiClient.executeGet("letv.cloudlive.activity.search", ver, param);
             HttpEntity entity = httpResponse.getEntity();
@@ -41,7 +41,7 @@ public class ActivityTest {
         letvApiClient.setUserid(userId);
         letvApiClient.setSecret(secret);
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("activityId", "A2016032600001ek");
+        param.put("activityId", "A2016032700001ag");
         try {
             HttpResponse httpResponse = letvApiClient.executeGet("letv.cloudlive.activity.getPushUrl", ver, param);
             HttpEntity entity = httpResponse.getEntity();
@@ -60,8 +60,8 @@ public class ActivityTest {
 
             Map<String, String> param = new HashMap<String, String>();
             param.put("activityName", "测试活动");
-            param.put("startTime", "20160326214655");
-            param.put("endTime", "20160326224655");
+            param.put("startTime", "20160421184655");
+            param.put("endTime", "20160423234655");
             param.put("liveNum", "1");
             param.put("codeRateTypes", "99");
             param.put("needRecord", "0");
@@ -84,7 +84,7 @@ public class ActivityTest {
         letvApiClient.setUserid(userId);
         letvApiClient.setSecret(secret);
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("activityId", "A2016032600001ek");
+        param.put("activityId", "A201604210000219");
         try {
             HttpResponse httpResponse = letvApiClient.executeGet("letv.cloudlive.activity.playerpage.getUrl", ver, param);
             HttpEntity entity = httpResponse.getEntity();
@@ -100,7 +100,7 @@ public class ActivityTest {
         letvApiClient.setUserid(userId);
         letvApiClient.setSecret(secret);
         HashMap<String, String> param = new HashMap<String, String>();
-        param.put("activityId", "A2016032600001ek");
+        param.put("activityId", "A201604210000219");
         try {
             HttpResponse httpResponse = letvApiClient.executeGet("letv.cloudlive.activity.getPlayInfo", ver, param);
             HttpEntity entity = httpResponse.getEntity();
