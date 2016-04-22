@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <html>
-    <head>
-        <title>直播</title>
-        <script type="text/javascript" charset="utf-8" src="yuntv.letv.com/player/live/blive.js"></script>
-    </head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <title>直播</title>
+    <script type="text/javascript" charset="utf-8" src="yuntv.letv.com/player/live/blive.js"></script>
+</head>
 <body>
-${activityId}
+<p th:text="${activityId}"></p>
 </body>
 <script>
     var element = document.createElement('div');
