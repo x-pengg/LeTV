@@ -1,4 +1,4 @@
-package com.mylive.util;
+package com.maybe.live.util;
 
 import java.security.MessageDigest;
 import java.util.*;

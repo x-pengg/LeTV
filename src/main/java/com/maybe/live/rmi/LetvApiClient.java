@@ -1,4 +1,4 @@
-package com.mylive.rmi;
+package com.maybe.live.rmi;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -9,7 +9,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.mylive.util.LetvApiUtil;
+import com.maybe.live.util.LetvApiUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;

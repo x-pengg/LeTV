@@ -1,6 +1,6 @@
-package com.mylive.test;
+package com.maybe.live.test;
 
-import com.mylive.rmi.LetvApiClient;
+import com.maybe.live.rmi.LetvApiClient;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;

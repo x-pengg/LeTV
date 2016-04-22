@@ -1,4 +1,4 @@
-package com.mylive.rmi;
+package com.maybe.live.rmi;
 
 import java.util.HashMap;
 

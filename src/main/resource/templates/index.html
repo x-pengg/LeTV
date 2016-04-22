@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <html>
+    <head>
+        <title>直播</title>
+        <script type="text/javascript" charset="utf-8" src="yuntv.letv.com/player/live/blive.js"></script>
+    </head>
+<body>
+${activityId}
+</body>
+<script>
+    var element = document.createElement('div');
+    element.setAttribute("id", "player");
+    document.body.appendChild(element);
+    var player = new CloudLivePlayer();
+    var playerConf = {
+        activityId: "${activityId}"
+    };
+    player.init(playerConf, "player");
+</script>
+</html>
