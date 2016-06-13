@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='直播设置')" th:remove="tag"/>
+    <link rel="stylesheet" href="../static/stylesheets/create_live.css" th:href="@{/stylesheets/create_live.css}"/>
+</head>
+
+<body>
+<div th:replace="fragments/layout :: nav(cur='live')"></div>
+<div class="container">
+    <div class="row">
+        <div th:replace="fragments/layout :: aside(active='live')"></div>
+        <main class="col-md-8">
+            <header class="title">
+                <h2>直播设置</h2>
+            </header>
+            <div class="content">
+                <form action="" id="liveForm">
+                    <table>
+                        <tr>
+                            <td><span class="required"></span>直播名称</td>
+                            <td><input type="text" class="c-input live-input" placeholder="输入直播名称" name="title">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>直播简介</td>
+                            <td><input type="text" class="c-input live-input" placeholder="输入直播简介" name="summary"></td>
+                        </tr>
+                        <tr>
+                            <td>直播分类</td>
+                            <td>
+                                <select name="typeId" class="c-select live-select">
+                                    <option th:each="type : ${types}" th:value="${type.id}"
+                                            th:text="${type.value}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>播放模式</td>
+                            <td>
+                                <ul class="choice-radio">
+                                    <li class="c-radio active" value="1"><span class="icon active"></span>实时直播</li>
+                                    <li class="c-radio" value="2"><span class="icon"></span>流畅直播</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="required"></span>清晰度</td>
+                            <td>
+                                <ul class="choice-checkbox">
+                                    <li class="c-checkbox active" value="13">标清</li>
+                                    <li class="c-checkbox" value="16">高清</li>
+                                    <li class="c-checkbox" value="19">超清</li>
+                                    <li class="c-checkbox" value="25">1080P</li>
+                                    <li class="c-checkbox" value="99">原画</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="form-footer">
+                        <button class="c-btn sub-btn" type="button" id="liveBtn">开始直播</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+<script src="../static/modules/jquery.validate.min.js" th:src="@{/modules/jquery.validate.min.js}"></script>
+<script type="text/javascript">
+    $.validator.setDefaults({
+        focusInvalid: true,
+        errorPlacement: function (error, element) {
+            error.addClass('tips').insertAfter(element);
+        }
+    });
+    var formValidate = $('#liveForm').validate({
+        rules: {
+            title: {required: true, maxlength: 150, minlength: 1},
+            summary: {maxlength: 250}
+        },
+        messages: {
+            title: {required: "必填项", maxlength: "1-150个字"},
+            summary: {maxlength: "最多250个字"}
+        }
+    });
+
+    var codeRateValidate = function () {
+        $('#codeRate-error').remove();
+        if ($('.c-checkbox.active').length === 0) {
+            var error = $(`<label class="error" id="codeRate-error">必填项</label>`);
+            error.addClass('tips').insertAfter($('.choice-checkbox'));
+            return false;
+        }
+    }
+
+    $('#liveBtn').click(function () {
+        if (codeRateValidate())
+            return false;
+        if (!formValidate.form())
+            return false;
+
+        var formData = getFormValue('liveForm');
+        var playMode = Number($('.c-radio.active').attr('value'));
+        var codeRate = $('.c-checkbox.active');
+        var codeRates = "";
+        codeRate.each(function () {
+            codeRates += $(this).attr('value') + ",";
+        });
+        codeRates = codeRates.slice(0, codeRates.length - 1);
+
+        formData.codeRate = codeRates;
+        formData.playMode = playMode;
+
+
+        $.post('/live/create', formData).done(function (result) {
+            if (result.code === 200) {
+                window.location.reload();
+            }
+        });
+
+    });
+
+
+    $('.c-radio').click(function () {
+        $('.c-radio,.c-radio>span').removeClass('active');
+        $(this).addClass('active');
+        $(this).children().addClass('active');
+    });
+    $('.c-checkbox').click(function () {
+        var active = $(this).hasClass('active');
+        if (active) {
+            $(this).removeClass('active');
+        } else {
+            $(this).addClass('active');
+        }
+    });
+
+</script>
+</body>
+</html>

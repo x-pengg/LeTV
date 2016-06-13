@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='注册')" th:remove="tag"/>
+    <link rel="stylesheet" href="../static/stylesheets/register.css" th:href="@{/stylesheets/register.css}"/>
+</head>
+<body class="llive">
+<div th:replace="fragments/layout :: nav(cur='login')"></div>
+<div class="register-container">
+    <div class="register-container-box">
+        <div class="sign-in-box">
+
+            <a href="/">
+                <img class="mb30" src="../static/images/logo.png" th:src="@{images/logo.png}" width="120"
+                     height="60"/>
+            </a>
+
+            <div class="message-bar ta-center">
+                <div id="errorBar" class="messageBar error"></div>
+            </div>
+
+            <div class="registerBox clearfix">
+                <form id="registerForm">
+                    <input type="text" class="mb20" name="name" id="name" placeholder="昵称" required>
+
+                    <input type="email" class="mb20" name="email" id="email" placeholder="邮箱" required>
+
+                    <input type="password" class="mb30" name="password" id="password" placeholder="*********" required>
+
+                    <input type="password" class="mb30" id="confirm" placeholder="确认密码" required>
+
+                    <button id="registerButton" class="fr link greyed-out" type="button">创建账号</button>
+
+                    <a class="forgotpw link" href="/login">登录</a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+<script>
+    $(function () {
+        $('#registerButton').click(function () {
+
+            if (!$('#registerForm')[0].checkValidity()) {
+                $('#registerForm')[0].reportValidity();
+                return;
+            }
+            $('#errorBar').empty();
+            var confirmVal = $('#confirm').val();
+            var passwordVal = $('#password').val();
+            if (confirmVal != passwordVal) {
+                $('#errorBar').append('<p>两次密码不一致</p>');
+                return;
+            }
+            $.post('/registration', $('#registerForm').serialize()).done(function (result) {
+                if (result.code === 400) {
+                    result.body.forEach(function(element, index, array){
+                        $('#errorBar').append(`<p>${element}</p>`);
+                    });
+                }
+                if(result.code!=200 && result.code!=400){
+                    $('#errorBar').append(result.message);
+                }
+                if(result.code === 200){
+                    toHome();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

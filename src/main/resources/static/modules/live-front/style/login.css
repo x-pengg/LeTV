@@ -1,0 +1,69 @@
+body{
+    background: #fff;
+}
+
+.login-container{
+    max-width: 400px;
+    margin: 120px auto 75px;
+    text-align: center;
+}
+.sign-in-box{
+    position: relative;
+    width: 88%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sign-in-box input {
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    background-color: inherit;
+    display: block;
+    width: 100%;
+    height: 40px;
+}
+.sign-in-box .accountLink {
+    position: relative;
+    top: 2px;
+}
+.mb20{
+    margin-bottom: 20px;
+}
+.mb30{
+    margin-bottom: 30px;
+}
+.sign-in-box .link{
+    cursor: pointer;
+    padding: 0;
+    color: #888;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+}
+.sign-in-box .link:hover{
+    color:#333;
+}
+.sign-in-box .forgotpw {
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+}
+.sign-in-box #loginButton {
+    width: 113px;
+    height: 48px;
+    border: 0;
+}
+.loginBox .greyed-out{
+    cursor: default;
+    background: #F6F6F6;
+    color: #888;
+}
+.loginBox .greyed-out:hover{
+    cursor: default;
+    color: #888;
+}
+

@@ -1,0 +1,69 @@
+* {
+    outline: 0 !important;
+}
+
+body {
+    padding-top: 50px;
+    font-family: "Microsoft YaHei", 'Helvetica Neue', "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -webkit-overflow-scrolling: touch;
+    webkit-touch-callout: none;
+}
+
+.pr {
+    position: relative;
+}
+
+.pa {
+    position: absolute;
+}
+
+.px {
+    position: fixed;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+/* navbar */
+.navbar-yckit {
+    border: none;
+    background: rgba(248, 248, 248, 0.901961);
+    border-radius: 0px;
+
+}
+
+.navbar-yckit li a:hover {
+    color: #666;
+}
+
+.navbar-nav > .open > a, .navbar-yckit .navbar-nav > .open > a:hover, .navbar-yckit .navbar-nav > .open > a:focus {
+    background: transparent;
+    color: #FC655F;
+}
+
+.navbar-brand span {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+.navbar-brand:hover span {
+    opacity: 0.6;
+}
+
+.navbar-yckit .navbar-red {
+    background: #FC655F;
+}
+
+.navbar-yckit .navbar-yellow {
+    background: #FDBC40;
+}
+
+.navbar-yckit .navbar-green {
+    background: #35CC4B;
+}
+

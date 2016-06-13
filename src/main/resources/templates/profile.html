@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='懵逼直播')" th:remove="tag"/>
+    <link rel="stylesheet" href="../static/stylesheets/profile.css" th:href="@{/stylesheets/profile.css}"/>
+</head>
+
+<body>
+<div th:replace="fragments/layout :: nav(cur='live')"></div>
+<div class="container">
+    <div class="row">
+        <div th:replace="fragments/layout :: aside(active='profile')"></div>
+        <main class="col-md-8">
+            <header class="title">
+                <h2>个人资料</h2>
+            </header>
+            <div class="content">
+                <p>比如这里个骚气的头像</p>
+            </div>
+        </main>
+    </div>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+</body>
+</html>

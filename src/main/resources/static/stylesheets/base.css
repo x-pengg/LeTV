@@ -1,0 +1,228 @@
+* {
+    outline: 0 !important;
+}
+
+body {
+    background: #fff;
+    padding-top: 50px;
+    font-family: "PT serif", \5FAE\8EDF\6B63\9ED1\9AD4, \5FAE\8F6F\96C5\9ED1, \534E\6587\7EC6\9ED1, Microsoft Yahei, Hiragino Sans GB, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -webkit-overflow-scrolling: touch;
+    webkit-touch-callout: none;
+}
+
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.pr {
+    position: relative;
+}
+
+.pa {
+    position: absolute;
+}
+
+.px {
+    position: fixed;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+label{
+    font-weight: normal;
+}
+
+.clearfix:after, .clearfix:before {
+    content: "";
+    display: table
+}
+
+.clearfix:after {
+    clear: both;
+    overflow: hidden
+}
+
+.clearfix {
+    zoom: 1
+}
+
+/* navbar */
+.navbar-yckit {
+    border: none;
+    background: #fff;
+    opacity: 0.9;
+    border-radius: 0px;
+    border-bottom: 1px solid #DDD;
+}
+
+.navbar-yckit li a:hover {
+    color: #666;
+}
+
+.navbar-brand span {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+.navbar-brand:hover span {
+    opacity: 0.6;
+}
+
+.navbar-yckit .navbar-red {
+    background: #FC655F;
+}
+
+.navbar-yckit .navbar-yellow {
+    background: #FDBC40;
+}
+
+.navbar-yckit .navbar-green {
+    background: #35CC4B;
+}
+
+.navbar-fixed-top .navbar-collapse {
+    padding: 0 30px;
+}
+
+.messageBar {
+    color: #FF0000;
+}
+
+.center-container {
+    max-width: 400px;
+    margin: 120px auto 75px;
+    text-align: center;
+}
+
+nav .avatar {
+    height: 28px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-top: -5px;
+    margin-right: 6px;
+}
+
+.ellipsis{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.about-img{
+    position: absolute;
+    bottom: 0;
+    left:0;
+}
+
+/*** public tag ***/
+
+input.c-input{
+    height: 42px;
+    border-radius: 4px;
+    margin-right: 14px;
+    box-shadow: none;
+    width: 100%;
+    padding: 6px 12px;
+    background-color: #fff;
+    border: 1px solid #d0d7e2;
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+}
+
+input.c-input:focus{
+    border-color: #000;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #C4C4C4;
+}
+input.c-input.error{
+    border-color: #F7615E;
+}
+input.c-input.error:focus{
+    border-color: #F7615E;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #FCC0BF;
+}
+input.c-input.valid{
+    border-color: #d0d7e2;
+}
+input.c-input.valid:focus{
+    border-color: #000;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #c9e2b3;
+}
+select.c-select{
+    height: 42px;
+    border-radius: 4px;
+    margin-right: 14px;
+    box-shadow: none;
+    width: 100%;
+    padding: 6px 12px;
+    background-color: #fff;
+    border: 1px solid #d0d7e2;
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+}
+
+button.c-btn{
+    color: #525866;
+    background-color: transparent;
+    font-weight: 500;
+    -webkit-transition: all .15s;
+    transition: all .15s;
+    padding: 0 15px;
+    font-size: 12px;
+    line-height: 32px;
+    border-radius: 4px;
+
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    user-select: none;
+}
+button.btn:focus,button.btn:hover {
+    color: #333;
+    text-decoration: none
+}
+
+.required:after{
+    content: "*";
+    color: #F5312D;
+    margin-right: 5px;
+}

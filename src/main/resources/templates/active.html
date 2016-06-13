@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='新账号激活')" th:remove="tag"/>
+</head>
+<body>
+<div th:replace="fragments/layout :: nav(cur='')"></div>
+<div class="container">
+    <h3 th:text="${email}"></h3>
+    <input type="hidden" th:value="${token}" id="token"/>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+<script type="application/javascript">
+    var token = $('#token').val();
+    if (token) {
+        $.post('/active', {token: token}).done(function (result) {
+            if (result.code != 200) {
+                $('.center-container').append(`<p>${result.message}</p>`);
+            } else {
+                $('.center-container').append(`<p>账号激活成功，3秒后跳转至首页...</p>`);
+                setTimeout(toHome, 3000);
+            }
+        });
+    }
+</script>
+</body>
+</html>

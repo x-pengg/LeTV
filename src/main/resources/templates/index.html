@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='懵逼直播')" th:remove="tag"/>
+    <link rel="stylesheet" href="../static/stylesheets/home2.css" th:href="@{/stylesheets/home2.css}"/>
+</head>
+<body>
+<div th:replace="fragments/layout :: nav(cur='live')"></div>
+<div class="container">
+    <div class="row">
+        <div id="live">
+            <div class="live-list-item col-xs-12 col-sm-6 col-md-4 col-lg-3 pr">
+                <div class="cover">
+                    <img src="http://i0.hdslb.com/group1/M00/FF/51/oYYBAFbG2mGAP55cAABc7mr9LRA018.jpg_340x220.jpg" alt="" />
+                    <span class="live-t">感觉自己萌萌哒OwO</span>
+                    <div class="live-overlay"></div>
+                    <div class="live-play">
+                        <i class="lv-onair-dot"></i>
+                        <span class="lv-onair-txt">LIVE</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+    </div>
+    <br>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+</body>
+</html>

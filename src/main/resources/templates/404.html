@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='error 404')" th:remove="tag" />
+    <link rel="stylesheet" href="../static/stylesheets/login.css" th:href="@{stylesheets/login.css}"/>
+</head>
+<body>
+<div th:replace="fragments/layout :: nav(cur='')"></div>
+<div class="container">
+<h3>404</h3>
+    <p>
+        The requested page was not found or could not be loaded :(
+    </p>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+server:
+  port: 12580
+  session:
+    timeout: -1
+debug: true
+spring:
+  profiles.active: development
+  thymeleaf.mode: LEGACYHTML5
+
+---
+
+spring:
+  profiles: development
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/live?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+
+  jpa:
+    database: mysql
+    show-sql: true
+
+---
+
+spring:
+  profiles: production
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://ip:port/live?useUnicode=true&characterEncoding=utf-8
+    username:
+    password:
+
+  jpa:
+    database: mysql
+    show-sql: true
+
+
+

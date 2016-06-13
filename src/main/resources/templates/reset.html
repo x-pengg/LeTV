@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='重置密码')" th:remove="tag"/>
+    <link rel="stylesheet" href="../static/stylesheets/login.css" th:href="@{/stylesheets/login.css}"/>
+</head>
+<body class="llive">
+<div th:replace="fragments/layout :: nav(cur='')"></div>
+<div class="login-container">
+    <div class="login-container-box">
+        <div class="sign-in-box">
+            <a href="/">
+                <img class="mb50" src="../static/images/logo.png" th:src="@{/images/logo.png}" width="120"
+                     height="60"/>
+            </a>
+            <p th:text="${email}"></p>
+            <div class="message-bar ta-center">
+                <div id="errorBar" class="messageBar error"></div>
+            </div>
+
+            <div class="loginBox clearfix">
+                <form id="resetForm">
+                    <input type="password" class="mb30" name="newPassword" id="newPassword" placeholder="新密码" required>
+                    <input type="password" class="mb30" id="confirm" placeholder="确认新密码" required>
+                    <input type="hidden" th:value="${email}" name="email">
+                    <a href="/login" class="fl accountLink link">登录</a>
+                    <button id="resetButton" class="fr link greyed-out" type="button">修改密码</button>
+                    <a class="forgotpw link" href="/register">注册账号</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+<script>
+    $(function () {
+        $('#resetButton').click(function () {
+
+            if (!$('#resetForm')[0].checkValidity()) {
+                $('#resetForm')[0].reportValidity();
+                return;
+            }
+
+            var confirmVal = $('#confirm').val();
+            var passwordVal = $('#newPassword').val();
+            if (confirmVal != passwordVal) {
+                $('#errorBar').append('<p>两次密码不一致</p>');
+                return;
+            }
+
+            $.post('/reset', $('#resetForm').serialize()).done(function (result) {
+                $('#errorBar').empty();
+                if(result.code!=200){
+                    $('#errorBar').append(result.body);
+                }else{
+                    $('.sign-in-box').html(`<h2>密码重设成功！</h2>`);
+                }
+
+            });
+        });
+    });
+</script>
+</body>
+</html>

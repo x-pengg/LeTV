@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='找回密码')" th:remove="tag"/>
+    <link rel="stylesheet" href="../static/stylesheets/login.css" th:href="@{/stylesheets/login.css}"/>
+</head>
+<body class="llive">
+<div th:replace="fragments/layout :: nav(cur='login')"></div>
+<div class="login-container">
+    <div class="login-container-box">
+        <div class="sign-in-box">
+            <a href="/">
+                <img class="mb50" src="../static/images/logo.png" th:src="@{images/logo.png}" width="120"
+                     height="60"/>
+            </a>
+            <div class="message-bar ta-center">
+                <div id="errorBar" class="messageBar error"></div>
+            </div>
+
+            <div class="loginBox clearfix">
+                <form id="forgotForm">
+                    <input type="email" class="mb20" name="email" id="login" placeholder="you@example.org" required/>
+                    <a href="/login" class="fl accountLink link">登录</a>
+                    <button id="forgotButton" class="fr link greyed-out" type="button">发送邮件</button>
+                    <a class="forgotpw link" href="/register">注册账号</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+<script>
+    $(function () {
+        $('#forgotButton').click(function () {
+
+            if (!$('#forgotForm')[0].checkValidity()) {
+                $('#forgotForm')[0].reportValidity();
+                return;
+            }
+
+            $.post('/sendResetMail', $('#forgotForm').serialize()).done(function (result) {
+                $('#errorBar').empty();
+                if(result.code!=200){
+                    $('#errorBar').append(result.message);
+                }else{
+                    $('#errorBar').html('<p>修改密码链接已经发送到您的邮箱，请注意查收！如果没有我们的邮件，请重新发送。</p>');
+                }
+
+            });
+        });
+    });
+</script>
+</body>
+</html>

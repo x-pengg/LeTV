@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='关于')" th:remove="tag" />
+    <link rel="stylesheet" href="../static/stylesheets/login.css" th:href="@{/stylesheets/login.css}"/>
+</head>
+<body>
+<div th:replace="fragments/layout :: nav(cur='')"></div>
+<div class="center-container">
+<h3>关于</h3>
+    <p>
+        一款基于乐视云的全民直播平台.
+    </p>
+</div>
+<img src="../static/images/bg.png" th:src="@{/images/bg.png}" class="about-img">
+<div th:replace="fragments/layout :: jslib"></div>
+</body>
+</html>

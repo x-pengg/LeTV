@@ -1,0 +1,18 @@
+
+# IntelliJ
+.idea
+*.iml
+out
+target
+*.log
+env.properties
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini

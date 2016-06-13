@@ -1,0 +1,89 @@
+* {
+    outline: 0 !important;
+}
+body {
+    background: #fff;
+    padding-top: 50px;
+    font-family: "PT serif",\5FAE\8EDF\6B63\9ED1\9AD4,\5FAE\8F6F\96C5\9ED1,\534E\6587\7EC6\9ED1,Microsoft Yahei,Hiragino Sans GB,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -webkit-overflow-scrolling: touch;
+    webkit-touch-callout: none;
+}
+
+
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+.px {
+    position: fixed;
+}
+.cp {
+    cursor: pointer;
+}
+.fr{
+    float: right;
+}
+.fl{
+    float: left;
+}
+.clearfix:after,.clearfix:before{
+    content:"";
+    display:table
+}
+.clearfix:after{
+    clear:both;
+    overflow:hidden
+}
+.clearfix{
+    zoom:1
+}
+
+/* navbar */
+.navbar-yckit {
+    border: none;
+    background: #fff;
+    opacity: 0.9;
+    border-radius: 0px;
+    border-bottom: 1px solid #DDD;
+}
+.navbar-yckit li a:hover {
+    color: #666;
+}
+
+.navbar-brand span {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+.navbar-brand:hover span {
+    opacity: 0.6;
+}
+.navbar-yckit .navbar-red {
+    background: #FC655F;
+}
+.navbar-yckit .navbar-yellow {
+    background: #FDBC40;
+}
+.navbar-yckit .navbar-green {
+    background: #35CC4B;
+}
+.navbar-fixed-top .navbar-collapse{
+    padding: 0 30px;
+}
+

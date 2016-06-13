@@ -1,0 +1,103 @@
+#live-tip {
+    padding: 20px;
+    color: #999;
+}
+#live .live-list-item{
+    top: 20px;
+}
+#live .live-list-item .cover {
+    display: block;
+    position: relative;
+    background: #efefef;
+    border-radius: 10px;
+    font-size: 1.3em;
+    height: 150px;
+    cursor: pointer;
+    overflow: hidden;
+}
+#live .cover{
+    width: 70%;
+    margin: 0 auto;
+}
+#live .cover img{
+    height: 150px;
+    width: 100%;
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: 1200px) {
+    #live .live-list-item .cover {
+        display: block;
+        position: relative;
+        background: #efefef;
+        border-radius: 10px;
+        font-size: 1.1em;
+        height: 180px;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    #live .cover img{
+        height: 180px;
+        width: 100%;
+    }
+    #live .cover{
+       width:100%;
+    }
+}
+#live .live-list-item .cover .live-t {
+    position: absolute;
+    bottom: 10px;
+    color: #fff;
+    left: 8px;
+}
+#live .live-overlay{
+    position: absolute;
+    height: 180px;
+    border-radius: 10px;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    -ms-filter: "alpha(opacity=0)";
+    filter: alpha(opacity=0);
+    background-color: #000;
+    -webkit-transition: all ease-out 250ms;
+    -ms-transition: all ease-out 250ms;
+    transition: all ease-out 250ms;
+}
+#live .live-play{
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    -ms-filter: "alpha(opacity=0)";
+    filter: alpha(opacity=0);
+    background-image: url("http://i9.pdim.gs/8d743bdec3c8a4b6730d1bc6b0cfab18.png");
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+    -webkit-transition: all ease-out 250ms;
+    -ms-transition: all ease-out 250ms;
+    transition: all ease-out 250ms;
+}
+
+#live .cover:hover .live-overlay{
+    opacity: .5;
+    -ms-filter: "alpha(opacity=50)";
+    filter: alpha(opacity=50)
+}
+#live .cover:hover .live-play{
+    opacity: 1;
+    -ms-filter: "alpha(opacity=100)";
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1)
+}

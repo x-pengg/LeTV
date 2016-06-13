@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录 | MayBeLive</title>
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+    <meta name="author" content="TateChan">
+    <meta name="keywords" content="HTML5,live,直播">
+    <meta name="description" content="基于乐视云平台的直播平台">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web App">
+    <meta name="format-detection" content="telephone=no">
+    <link href="style/font-awesome.min.css" rel="stylesheet"/>
+    <link href="style/bootstrap.css" rel="stylesheet"/>
+    <link href="style/base.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style/login.css">
+</head>
+<body class="llive">
+<nav class="navbar navbar-fixed-top navbar-default navbar-yckit " role="navigation">
+    <div class="container-fluid">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <span class="navbar-red"></span>
+                <span class="navbar-yellow"></span>
+                <span class="navbar-green"></span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/"><i class="fa fa-fw fa-play"></i>&nbsp;直播</a></li>
+                <li class="active"><a href="/" class="h-p">登录</a></li>
+                <li ><a href="/" class="h-p">搜索直播</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="login-container">
+    <div class="login-container-box">
+        <div class="sign-in-box">
+
+            <a href="/">
+                <img class="mb30" src="img/logo.png" width="120" height="60">
+            </a>
+
+            <p>Go fucking sign in.</p>
+
+            <div class="message-bar ta-center">
+                <div id="errorBar" class="messageBar error"></div>
+            </div>
+
+            <div class="loginBox clearfix">
+                <form method="POST" action="" id="loginForm">
+                    <input type="email" class="mb20" name="login" id="login" placeholder="Email">
+
+                    <input type="password" class="mb30" name="password" id="password" placeholder="Password">
+
+                    <a href="register.html" class="fl accountLink link">注册账号</a>
+
+                    <button id="loginButton" class="fr link greyed-out" type="submit">登录</button>
+
+                    <a class="forgotpw link" href="">忘记密码</a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

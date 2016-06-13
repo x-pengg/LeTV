@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='登录')" th:remove="tag"/>
+    <link rel="stylesheet" href="../static/stylesheets/login.css" th:href="@{/stylesheets/login.css}"/>
+</head>
+<body class="llive">
+<div th:replace="fragments/layout :: nav(cur='login')"></div>
+<div class="login-container">
+    <div class="login-container-box">
+        <div class="sign-in-box">
+            <a href="/">
+                <img class="mb50" src="../static/images/logo.png" th:src="@{images/logo.png}" width="120"
+                     height="60"/>
+            </a>
+            <div class="message-bar ta-center">
+                <div id="errorBar" class="messageBar error"></div>
+            </div>
+
+            <div class="loginBox clearfix">
+                <form id="loginForm">
+                    <input type="email" class="mb20" name="email" id="login" placeholder="you@example.org" required/>
+                    <input type="password" class="mb30" name="password" id="password" placeholder="********" required/>
+                    <a href="/register" class="fl accountLink link">注册账号</a>
+                    <button id="loginButton" class="fr link greyed-out" type="button">登录</button>
+                    <a class="forgotpw link" href="/forgot">忘记密码</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+<script>
+    $(function () {
+        $('#loginButton').click(function () {
+
+            if (!$('#loginForm')[0].checkValidity()) {
+                $('#loginForm')[0].reportValidity();
+                return;
+            }
+
+            $.post('/login', $('#loginForm').serialize()).done(function (result) {
+                $('#errorBar').empty();
+                if (result.code === 400) {
+                    result.body.forEach(function (element, index, array) {
+                        $('#errorBar').append(`<p>${element}</p>`);
+                    });
+                }
+                if (result.code != 200 && result.code != 400) {
+                    $('#errorBar').append(result.message);
+                }else if (result.code === 200 && result.body) {
+                    nav(result.body);
+                }else if (result.code === 200) {
+                    nav("/profile");
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

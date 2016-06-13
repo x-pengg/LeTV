@@ -1,0 +1,182 @@
+body{
+    background-color: #ebeced;
+}
+
+aside {
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+main{
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 10px 0;
+}
+
+aside .user-info{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+}
+aside .user-info .user-name {
+    width: 200px;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+aside .user-info .user-email {
+    width: 200px;
+    font-size: 14px;
+    padding-left: 20px;
+}
+
+aside .user-info .startBtn {
+    position: absolute;
+    right: 30px;
+    top: 70px;
+}
+aside .user-info .profile {
+    margin-top: 11px;
+}
+aside .user-info .avatar{
+    height: 80px;
+    width: 80px;
+}
+
+aside .nav-aside{
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-bottom: 14px;
+}
+
+aside .nav-aside .nav-group{
+}
+
+aside .nav-aside .nav-group h3{
+    border-bottom: 1px solid #eee;
+    font-size: 21px;
+    line-height: 40px;
+    padding: 0 30px;
+}
+aside .nav-aside ul>li{
+    text-align: center;
+}
+aside .nav-aside ul>li>a{
+    color: #999;
+    font-size: 16px;
+    display: block;
+    line-height: 40px;
+}
+aside .nav-aside ul>li.active{
+    background-color: #fafafa;
+    border-left: 2px solid #000;
+}
+
+main .title{
+    border-bottom: 1px solid #eee;
+}
+main .content{
+    padding-top: 20px;
+}
+main table{
+    width: 90%;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+main table td{
+    padding: 10px;
+}
+
+main table .tips{
+    float: left;
+    margin-top: 10px;
+    color: #F5312D;
+}
+
+main table td .live-input{
+    width: 70%;
+    display: block;
+    float: left;
+}
+main table td .live-select{
+    width: 37%;
+    display: block;
+    float: left;
+}
+
+main form .form-footer{
+    width: 90%;
+    text-align: center;
+}
+
+main form .form-footer{
+    width: 90%;
+    text-align: center;
+}
+main form .form-footer .sub-btn{
+    font-size: 16px;
+    padding: 5px 30px;
+    border-color: #CCC;
+}
+main form .form-footer .sub-btn:hover{
+    background-color: #000;
+    color: #fff;
+}
+main form .form-footer .sub-btn:active{
+    border-color: #000;
+}
+
+main table td .choice-checkbox li{
+    float: left;
+    padding: 6px 12px;
+    height: 36px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #d0d7e2;
+    position: relative;
+    cursor: pointer;
+}
+
+main table td .choice-radio li{
+    float: left;
+    padding: 6px 12px;
+    height: 36px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #d0d7e2;
+    position: relative;
+    cursor: pointer;
+}
+main table td .choice-radio .c-radio, main table td .choice-checkbox .c-checkbox{
+    border: 1px solid #d0d7e2;
+    color: #999;
+}
+
+main table td .choice-radio .c-radio:hover, main table td .choice-checkbox .c-checkbox:hover{
+    color: #FC655F;
+}
+
+main table td .choice-radio .c-radio.active, main table td .choice-checkbox .c-checkbox.active{
+    border: 1px solid #FC655F;
+    color: #FC655F;
+}
+
+main table td .choice-radio li .icon{
+    float: left;
+    background: #d0d7e2;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+main table td .choice-radio li .icon.active{
+    background: #FC655F;
+}

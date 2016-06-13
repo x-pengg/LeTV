@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}+' | MayBeLive'">MayBeLive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="TateChan"/>
+    <meta name="keywords" content="全民直播,live,直播">
+    <meta name="description" content="直播">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web App">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../static/stylesheets/bootstrapv3.css" th:href="@{/stylesheets/bootstrapv3.css}"/>
+    <link rel="stylesheet" href="../../static/stylesheets/base.css" th:href="@{/stylesheets/base.css}"/>
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top navbar-default navbar-yckit " role="navigation" th:fragment="nav(cur)">
+    <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <span class="navbar-red"></span>
+                <span class="navbar-yellow"></span>
+                <span class="navbar-green"></span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li th:class="${cur=='live'?'active':''}"><a href="/"><i class="fa fa-fw fa-play"></i>直播</a></li>
+                <li><a href="/"><i class="fa fa-fw fa-play"></i>所有分类</a></li>
+                <li><a href="/about"><i class="fa fa-fw fa-play"></i>关于</a></li>
+                <li th:if="${session.USER_SESSION==null}" th:class="${cur=='login'?'active':''}">
+                    <a href="/login" class="h-p">登录</a>
+                </li>
+                <li th:if="${session.USER_SESSION!=null}" role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <img th:src="${session.USER_SESSION==null?'':session.USER_SESSION.headImg}" class="avatar"/>
+                        <lable th:text="${session.USER_SESSION==null?'':session.USER_SESSION.name}"></lable>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/live">直播管理</a></li>
+                        <li><a href="/profile">个人中心</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- left -->
+<aside class="col-md-4" th:fragment="aside(active)">
+    <div class="user-info clearfix">
+        <div class="fl">
+            <img class="img-circle avatar" th:src="${session.USER_SESSION.headImg}">
+        </div>
+        <div class="fl">
+            <div class="profile">
+                <p th:text="${session.USER_SESSION.name}" class="ellipsis user-name"></p>
+                <p class="ellipsis user-email">
+                    <
+                    <lable th:text="${session.USER_SESSION.email}"></lable>
+                    >
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-aside">
+        <div class="nav-group">
+            <h3>个人中心</h3>
+        </div>
+        <ul>
+            <li th:class="${active=='profile'?'active':''}"><a href="/profile">个人资料</a></li>
+            <li th:class="${active=='live'?'active':''}"><a href="/live">直播管理</a></li>
+            <li th:class="${active=='cover'?'active':''}"><a href="">直播封面更换</a></li>
+            <li><a href="">关注(0)</a></li>
+            <li><a href="">关注者(0)</a></li>
+        </ul>
+    </div>
+</aside>
+
+<div th:fragment="jslib">
+    <script src="../../static/modules/jquery.min.js" th:src="@{/modules/jquery.min.js}"></script>
+    <script src="../../static/modules/bootstrapv3.min.js" th:src="@{/modules/bootstrapv3.min.js}"></script>
+    <script src="../../static/javascripts/common.js" th:src="@{/javascripts/common.js}"></script>
+</div>
+</body>
+</html>

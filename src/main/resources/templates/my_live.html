@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='直播设置')" th:remove="tag"/>
+    <link rel="stylesheet" href="../static/stylesheets/create_live.css" th:href="@{/stylesheets/create_live.css}"/>
+</head>
+
+<body>
+<div th:replace="fragments/layout :: nav(cur='live')"></div>
+<div class="container">
+    <div class="row">
+        <div th:replace="fragments/layout :: aside(active='live')"></div>
+        <main class="col-md-8">
+            <header class="title">
+                <h2>直播设置</h2>
+            </header>
+            <div class="content">
+                xx
+            </div>
+        </main>
+    </div>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+<script src="../static/modules/jquery.validate.min.js" th:src="@{/modules/jquery.validate.min.js}"></script>
+<script type="text/javascript">
+    $.validator.setDefaults({
+        focusInvalid: true,
+        errorPlacement: function (error, element) {
+            error.addClass('tips').insertAfter(element);
+        }
+    });
+    var formValidate = $('#liveForm').validate({
+        rules: {
+            title: {required: true, maxlength: 150, minlength: 1},
+            summary: {maxlength: 250}
+        },
+        messages: {
+            title: {required: "必填项", maxlength: "1-150个字"},
+            summary: {maxlength: "最多250个字"}
+        }
+    });
+
+    var codeRateValidate = function () {
+        $('#codeRate-error').remove();
+        if ($('.c-checkbox.active').length === 0) {
+            var error = $(`<label class="error" id="codeRate-error">必填项</label>`);
+            error.addClass('tips').insertAfter($('.choice-checkbox'));
+            return false;
+        }
+    }
+
+    $('#liveBtn').click(function () {
+        if (codeRateValidate())
+            return false;
+        if (!formValidate.form())
+            return false;
+
+        var formData = getFormValue('liveForm');
+        var playMode = Number($('.c-radio.active').attr('value'));
+        var codeRate = $('.c-checkbox.active');
+        var codeRates = "";
+        codeRate.each(function () {
+            codeRates += $(this).attr('value') + ",";
+        });
+        codeRates = codeRates.slice(0, codeRates.length - 1);
+
+        formData.codeRate = codeRates;
+        formData.playMode = playMode;
+
+
+        $.post('/live/create', formData).done(function (result) {
+            if (result.code === 200) {
+                window.location.reload();
+            }
+        });
+
+    });
+
+
+    $('.c-radio').click(function () {
+        $('.c-radio,.c-radio>span').removeClass('active');
+        $(this).addClass('active');
+        $(this).children().addClass('active');
+    });
+    $('.c-checkbox').click(function () {
+        var active = $(this).hasClass('active');
+        if (active) {
+            $(this).removeClass('active');
+        } else {
+            $(this).addClass('active');
+        }
+    });
+
+</script>
+</body>
+</html>

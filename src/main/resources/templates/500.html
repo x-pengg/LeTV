@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <object th:include="fragments/layout :: head(title='服务器出现了错误')" th:remove="tag" />
+    <link rel="stylesheet" href="../static/stylesheets/login.css" th:href="@{/stylesheets/login.css}"/>
+</head>
+<body>
+<div th:replace="fragments/layout :: nav(cur='')"></div>
+<div class="container">
+<h3>服务器出现了错误 :(</h3>
+    <p th:text="${ex}"></p>
+</div>
+<div th:replace="fragments/layout :: jslib"></div>
+</body>
+</html>
